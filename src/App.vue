@@ -5,7 +5,6 @@ import DatosPersonales from './components/DatosPersonales.vue'
 import Educacion from './components/EducacionComponente.vue'
 import ExperienciaComponentes from './components/ExperienciaComponentes.vue'
 import ProyectosComponente from './components/ProyectosComponente.vue'
-
 import InteresesComponentes from './components/InteresesComponentes.vue'
 import HabilidadesComponentes from './components/HabilidadesComponentes.vue'
 

@@ -3,16 +3,7 @@ import { ref } from 'vue'
 // ⭐ AGREGA ESTAS IMPORTACIONES DE LUCIDE
 import { GraduationCap, Code, Briefcase, BookOpen } from 'lucide-vue-next'
 
-const fechaColor = ref([])
 const hoveredItem = ref(null)
-
-const fechaColor_value = [
-  { color: '#1a1c1e' },
-  { color: '#d4cdc3' },
-  { color: '#a09282' },
-  { color: '#3a3e3c' },
-  { color: '#e4d9cb' },
-]
 
 const education = [
   {
@@ -28,6 +19,7 @@ const education = [
     badgeClass: 'badge-burgundy',
     iconClass: 'icon-burgundy',
   },
+
   {
     id: 2,
     fecha: '2023',
@@ -54,6 +46,7 @@ const education = [
     badgeClass: 'badge-terracotta',
     iconClass: 'icon-terracotta',
   },
+
   {
     id: 4,
     fecha: '2020',
@@ -72,7 +65,6 @@ const education = [
 
 <template>
   <div id="educacion" class="education-section">
-    ...
     <div class="container">
       <!-- Header -->
       <div class="header-section">
@@ -133,7 +125,12 @@ const education = [
             >
               <div :class="['year-badge', item.badgeClass]">{{ item.fecha }}</div>
               <div :class="['icon-wrapper', item.iconClass]">
-                <span class="icon">{{ item.icon }}</span>
+                <component
+                  :is="item.iconComponent"
+                  :size="28"
+                  :stroke-width="2"
+                  class="icon-lucide"
+                />
               </div>
               <h3 class="item-title">{{ item.title }}</h3>
               <p class="item-institution">{{ item.institution }}</p>
@@ -181,6 +178,7 @@ body {
 }
 
 /* Estilos para la lista */
+
 ul {
   margin-top: 2rem;
   --col-gap: 2rem; /* Espacio entre las columnas de la cuadrícula */
@@ -338,7 +336,6 @@ ul li .descripcion::before {
   ul li:nth-child(2) {
     grid-row: 2/4; /* El segundo ítem ocupará desde la segunda hasta la cuarta fila */
   }
-
   /* Ajustes específicos para los ítems impares */
   ul li:nth-child(odd) .fecha::before {
     clip-path: polygon(0 0, 100% 0, 100% 100%); /* Invierte el triángulo en los ítems impares */
