@@ -1,0 +1,55 @@
+/* Importa los estilos base definidos en otro archivo CSS.
+   Esto ayuda a mantener el código organizado y reutilizable. */
+@import './base.css';
+
+/* === ESTILOS GENERALES DE LA APLICACIÓN === */
+
+/*
+  El contenedor principal (#app) define el ancho máximo de la aplicación,
+  centra el contenido horizontalmente y agrega espacio interno (padding).
+  El font-weight normal asegura que el texto no se vea en negrita por defecto.
+*/
+
+#app {
+  max-width: 1280px; /* Ancho máximo de la aplicación */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 2rem; /* Espacio interno para que no quede pegado a los bordes */
+  font-weight: normal; /* Peso de fuente normal (sin negrita) */
+}
+
+/*
+  Estilos para todos los enlaces (etiquetas <a>):
+  Se elimina el subrayado y se establece un color blanco,
+  el cual proviene de una variable CSS definida en base.css.
+*/
+/* Todas las etiquetas a (supervúnculos) NO esten subrayados*/
+a {
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: var (--vt-c-white); /* Asigna color blanco (variable definida en base.css) */
+}
+
+/* === MEDIA QUERY: Adaptación para pantallas pequeñas (MÓVILES) === */
+
+/*
+  Esta Media Query aplica los estilos cuando el ancho de la pantalla es MÁXIMO 768px (típico de tablets o móviles).
+*/
+@media (max-width: 768px) {
+  #app {
+    display: flex; /* Activa el modo flexbox */
+    flex-direction: column; /* Organiza los elementos de arriba hacia abajo (ideal para vista móvil) */
+    font-size: small; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+  }
+}
+
+/* === MEDIA QUERY: Adaptación para pantallas grandes (ESCRITORIO) === */
+/*
+  A partir de un ancho mínimo de 1024px, el diseño se adapta para pantallas grandes.
+  Se usa Flexbox para organizar el contenido del #app en columnas y se ajusta el ancho al 80%.
+*/
+@media (min-width: 1024px) {
+  #app {
+    display: flex; /* Activa el modo flexbox para organizar elementos hijos */
+    flex-direction: column; /* Organiza los elementos de arriba hacia abajo */
+    width: 80%; /* Reduce el ancho del contenedor al 80% del total */
+  }
+}

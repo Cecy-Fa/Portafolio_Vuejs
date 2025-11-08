@@ -1,0 +1,122 @@
+/* ============================================================
+  Archivo: base.css
+  Descripción: Define la paleta de colores, variables globales
+  y estilos base del proyecto. Este archivo sirve como base
+  para toda la aplicación (importado en main.css o app.css).
+   ============================================================ */
+
+/* === PALETA DE COLORES BASE (inspirada en el tema de Vue.js) === */
+/* Se definen variables CSS globales para colores claros, oscuros
+  y neutros. Esto permite mantener coherencia visual y facilita
+  la personalización de temas (como modo oscuro). */ /* color palette from <https://github.com/vuejs/theme> */
+
+:root {
+  /* Colores blancos */
+  --vt-c-white: #ffffff; /* Blanco puro */
+  --vt-c-white-soft: #f8f8f8; /* Blanco suave */
+  --vt-c-white-mute: #f2f2f2; /* Blanco atenuado */
+
+  /* Colores negros */
+  --vt-c-black: #181818; /* Negro base */
+  --vt-c-black-soft: #222222; /* Negro suave */
+  --vt-c-black-mute: #282828; /* Negro atenuado */
+
+  /* Color principal (Burdeos Elegante) */
+  --vt-c-indigo: #6b4654;
+
+  /* Divisores (bordes) en distintos niveles de opacidad */
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  /* Colores para texto (en temas claro y oscuro) */
+  --vt-c-text-light-1: #6b4654; /* Texto principal claro */
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66); /* Texto secundario claro */
+  --vt-c-text-dark-1: var(--vt-c-white); /* Texto principal oscuro */
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64); /* Texto secundario oscuro */
+}
+
+/* === VARIABLES SEMÁNTICAS DEL PROYECTO === */
+/* Aquí se asignan los colores base a variables más significativas,
+  que se usarán en el resto del proyecto (fondo, texto, bordes, etc.).
+  Esto facilita cambiar el tema o los tonos sin modificar muchos archivos. */
+/* semantic color variables for this project */
+:root {
+  :root {
+    /* FONDOS */
+    --color-background: #f5f1ed; /* Crema claro - fondo principal */
+    --color-background-soft: #ebe6e0; /* Beige más oscuro - secciones alternas */
+    --color-background-mute: #f5f1ed; /* Mantén el crema */
+
+    /* BORDES */
+    --color-border: #d4af87; /* Dorado champagne - borde por defecto */
+    --color-border-hover: #c9756f; /* Terracota - borde al pasar cursor */
+
+    /* TEXTOS Y ENCABEZADOS */
+    --color-heading: #6b4654; /* Burdeos - color de encabezados */
+    --color-text: #8b8680; /* Gris topo - color de texto principal */
+
+    --section-gap: 160px; /* Deja esto igual */
+  }
+}
+
+/* === MODO OSCURO (DARK MODE) === */
+/* Si el sistema operativo del usuario está en modo oscuro,
+estas variables reemplazan las del modo claro automáticamente. */
+/*Estilo para modo oscuro lo dejaremos como estan por si más adelante quieres dejarlo*/
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);/* Contenedor oscuro */ /*
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);/* Texto claro */ /*
+  }
+}
+*/
+
+/* === RESETEO Y ESTILOS BASE === */
+/* El asterisco (*) aplica a todos los elementos y a sus pseudoelementos (::before y ::after).
+   Esto ayuda a tener un comportamiento uniforme en todos los navegadores. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Incluye borde y padding en el cálculo del ancho/alto */
+  margin: 0; /* Elimina márgenes por defecto */
+  font-weight: normal; /* Evita texto en negrita innecesario */
+}
+
+/* === ESTILOS DEL BODY === */
+/* Define la base visual del documento: fuente, color, fondo y transiciones. */
+body {
+  min-height: 100vh; /* Ocupa el alto completo de la pantalla */
+  color: var(--color-text); /* Usa el color de texto definido arriba */
+  background: #f5f1ed; /* Fondo principal */
+  transition:
+    color 0.5s,
+    background-color 0.5s; /* Transición suave entre temas */
+  line-height: 1.6; /* Altura de línea para mejor legibilidad */
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif; /* Fuentes modernas y seguras */
+  font-size: 15px; /* Tamaño base del texto */
+  text-rendering: optimizeLegibility; /* Mejora la nitidez del texto */
+  -webkit-font-smoothing: antialiased; /* Suaviza fuentes en navegadores WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Suaviza fuentes en macOS */
+}
